@@ -19,8 +19,12 @@ let arrayPlayerOne = [];
 let arrayPlayerTwo = [];
 let squareArray = [];
 let gameActive = true;
+let playerOneBool = false;
+let playerTwoBool = false;
 let playerOneScore = 0;
 let playerTwoScore = 0;
+let tieScore = 0;
+
 // Winning combinations
 const winningCombinations = [
   [0, 1, 2],
@@ -48,6 +52,7 @@ function boardEvent(e) {
     // Allows the user to populate the board with
     populateBoard();
     checkWinner(arrayPlayerOne, arrayPlayerTwo);
+    checkTie();
     //   console.log(playerOneWins);
   }
 }
@@ -58,6 +63,7 @@ function checkWinner(playerOneArray, playerTwoArray) {
       winningCombinations[i].every((array) => playerOneArray.includes(array))
     ) {
       console.log("player one wins!");
+      playerOneBool = true;
       playerOneScore++;
       document.querySelector(".playerOne").innerHTML = playerOneScore;
       endGame();
@@ -65,12 +71,14 @@ function checkWinner(playerOneArray, playerTwoArray) {
       winningCombinations[i].every((array) => playerTwoArray.includes(array))
     ) {
       console.log("player two wins!");
+      playerTwoBool = true;
       playerTwoScore++;
       document.querySelector(".playerTwo").innerHTML = playerTwoScore;
       endGame();
-    } else {
-      checkTie();
     }
+    //  else {
+    //   checkTie();
+    // }
   }
 }
 
@@ -102,6 +110,8 @@ function clearBoard() {
     e.classList.remove("X", "O");
     e.innerHTML = "";
   });
+  playerOneBool = false;
+  playerTwoBool = false;
   gameActive = true;
   currentSelection = 0;
   arrayPlayerOne = [];
@@ -118,8 +128,14 @@ function endGame() {
 }
 
 function checkTie() {
-  if (arrayPlayerOne.length + arrayPlayerTwo.length === 9) {
+  if (
+    playerOneBool === false &&
+    playerTwoBool === false &&
+    arrayPlayerOne.length + arrayPlayerTwo.length === 9
+  ) {
     console.log("It's a tie!");
+    tieScore++;
+    document.querySelector(".tie").innerHTML = tieScore;
     gameActive = false;
   }
 }
