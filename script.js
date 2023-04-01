@@ -18,7 +18,8 @@ let currentSelection = 0;
 let arrayPlayerOne = [];
 let arrayPlayerTwo = [];
 let squareArray = [];
-let gameActive = true;
+let gameActive = false;
+let goesFirstButton = true;
 let playerOneBool = false;
 let playerTwoBool = false;
 let playerOneScore = 0;
@@ -43,6 +44,10 @@ document.querySelector(".reset").addEventListener("click", (e) => {
   clearBoard();
 });
 
+document.querySelector(".menu").addEventListener("click", (e) => {
+  goesFirst(e);
+});
+
 function boardEvent(e) {
   // Create an array of all the children of the .board
   if (gameActive === true) {
@@ -51,9 +56,9 @@ function boardEvent(e) {
 
     // Allows the user to populate the board with
     populateBoard();
+    // checks for the winner after each click
     checkWinner(arrayPlayerOne, arrayPlayerTwo);
     checkTie();
-    //   console.log(playerOneWins);
   }
 }
 
@@ -137,5 +142,19 @@ function checkTie() {
     tieScore++;
     document.querySelector(".tie").innerHTML = tieScore;
     gameActive = false;
+  }
+}
+
+function goesFirst(event) {
+  if (goesFirstButton === true) {
+    if (event.target.classList.contains("buttonX")) {
+      currentPlayer = players.playerOne;
+      gameActive = true;
+      goesFirstButton = false;
+    } else if (event.target.classList.contains("buttonO")) {
+      currentPlayer = players.playerTwo;
+      gameActive = true;
+      goesFirstButton = false;
+    }
   }
 }

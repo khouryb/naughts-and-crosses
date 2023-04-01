@@ -8,9 +8,13 @@
     <title>Naughts and Crosses</title>
   </head>
   <body>
-    <header>Naughts and Crosses</header>
+    <header>Noughts and Crosses</header>
     <section class="menuandboard">
-      <aside class="menu"></aside>
+      <aside class="menu">
+        <p>Who goes first?</p>
+        <button class="buttonX">X</button>
+        <button class="buttonO">O</button>
+      </aside>
       <div class="board">
         <div class="square"></div>
         <div class="square"></div>
@@ -24,10 +28,12 @@
       </div>
     </section>
     <section class="info">
-      <button class="reset">Reset</button>
-      <p>Player one's score is: <span class="playerOne"></span></p>
-      <p>Player two's score is: <span class="playerTwo"></span></p>
-      <p>Number of ties: <span class="tie"></span></p>
+      <button class="reset">Play again</button>
+      <p class="player-scores">
+        Player one's score is: <span class="playerOne">0</span>
+      </p>
+      <p>Player two's score is: <span class="playerTwo">0</span></p>
+      <p>Draws: <span class="tie">0</span></p>
     </section>
     <footer></footer>
   </body>
