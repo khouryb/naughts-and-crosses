@@ -4,17 +4,48 @@ header {
     font-size: 40px;
 }
 
+.menuandboard {
+    margin: auto 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu {
+    margin-right: 20px;
+    height: 456px;
+    width: 300px;
+    border: black solid 1px;
+}
+
 .board {
-    margin: 0 auto;
     width: 456px;
     height: 456px;
-    border: black solid 1px;
+
     display: flex;
     flex-wrap: wrap;
 }
 
 .square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: black solid 1px;
     height: 150px;
     width: 150px;
+    font-size: 104px;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+
+}
+
+button, p {
+    margin: 10px 15px 0 0;
+}
+
+p {
+    font-size: 24px;
 }
