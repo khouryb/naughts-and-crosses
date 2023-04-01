@@ -13,6 +13,7 @@ const players = {
   playerOne: "X",
   playerTwo: "O",
 };
+const winHistory = document.querySelector(".win-history");
 let currentPlayer = players.playerOne;
 let currentSelection = 0;
 let arrayPlayerOne = [];
@@ -67,7 +68,7 @@ function checkWinner(playerOneArray, playerTwoArray) {
     if (
       winningCombinations[i].every((array) => playerOneArray.includes(array))
     ) {
-      console.log("player one wins!");
+      gameHistory("X wins!");
       playerOneBool = true;
       playerOneScore++;
       document.querySelector(".playerOne").innerHTML = playerOneScore;
@@ -75,7 +76,7 @@ function checkWinner(playerOneArray, playerTwoArray) {
     } else if (
       winningCombinations[i].every((array) => playerTwoArray.includes(array))
     ) {
-      console.log("player two wins!");
+      gameHistory("Y wins!");
       playerTwoBool = true;
       playerTwoScore++;
       document.querySelector(".playerTwo").innerHTML = playerTwoScore;
@@ -138,7 +139,7 @@ function checkTie() {
     playerTwoBool === false &&
     arrayPlayerOne.length + arrayPlayerTwo.length === 9
   ) {
-    console.log("It's a tie!");
+    gameHistory("It's a draw!");
     tieScore++;
     document.querySelector(".tie").innerHTML = tieScore;
     gameActive = false;
@@ -156,5 +157,15 @@ function goesFirst(event) {
       gameActive = true;
       goesFirstButton = false;
     }
+  }
+}
+
+function gameHistory(string) {
+  pElement = document.createElement("li");
+  pElement.innerHTML = string;
+  winHistory.prepend(pElement);
+  console.log(winHistory.childElementCount);
+  if (winHistory.childElementCount > 6) {
+    winHistory.removeChild(winHistory.lastChild);
   }
 }

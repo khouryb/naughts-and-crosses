@@ -42,10 +42,20 @@ header {
 
 }
 
-button, p {
+.reset, .player-scores {
     margin: 10px 15px 0 0;
 }
 
-p {
+.player-scores {
     font-size: 24px;
+}
+
+.win-history {
+    height: 200px;
+    max-height: 200px;
+}
+
+ul {
+    border: solid black 1px;
+    height: 200px;
 }
