@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
+body {
+    background-color: #f8f8f8;
+    font-family: 'Varela Round', sans-serif;;
+}
+
 header {
     text-align: center;
     margin: 20px 0 35px 0;
@@ -14,22 +19,28 @@ header {
 }
 
 .menu {
+    background-color: rgb(186,225,255);
     margin-right: 20px;
     height: 456px;
     width: 300px;
-    border: black solid 1px;
+    border-radius: 10px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .board {
-    width: 456px;
-    height: 456px;
-    border: solid black 1px;
+    width: 454px;
+    height: 454px;
+    
+    border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
+    background-color: rgb(186,225,255);
 }
+
+
 
 .square {
     display: flex;
@@ -40,6 +51,32 @@ header {
     width: 150px;
     font-size: 104px;
     font-family: 'Varela Round', sans-serif;
+    margin: 0;
+}
+
+/* remove border for edges */
+.square:nth-child(1), .square:nth-child(2), .square:nth-child(3) {
+	border-top: none;
+}
+
+.square:nth-child(1), .square:nth-child(4), .square:nth-child(7) {
+	border-left: none;
+}
+
+.square:nth-child(3), .square:nth-child(6), .square:nth-child(9) {
+	border-right: none;
+}
+
+.square:nth-child(7), .square:nth-child(8), .square:nth-child(9) {
+	border-bottom: none;
+}
+
+.square:nth-child(even) {
+    background-color: rgb(255,179,186);
+}
+
+.square:nth-child(odd) {
+    background-color: rgb(255,223,186);
 }
 
 .info {
@@ -62,7 +99,7 @@ header {
 }
 
 ul {
-    border: solid black 1px;
+    
     height: 200px;
 }
 
