@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 header {
     text-align: center;
-    margin: 20px 0 50px 0;
+    margin: 20px 0 35px 0;
     font-size: 40px;
 }
 
@@ -16,12 +18,15 @@ header {
     height: 456px;
     width: 300px;
     border: black solid 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .board {
     width: 456px;
     height: 456px;
-
+    border: solid black 1px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -34,6 +39,7 @@ header {
     height: 150px;
     width: 150px;
     font-size: 104px;
+    font-family: 'Varela Round', sans-serif;
 }
 
 .info {
@@ -58,4 +64,32 @@ header {
 ul {
     border: solid black 1px;
     height: 200px;
+}
+
+.buttonX, .buttonO {
+    font-size: 48px;
+    padding: 15px 32px;
+    
+}
+
+.buttons {
+    transform: translateY(-20px);
+    display: flex;
+    justify-content: space-around;
+}
+
+.first {
+    font-size: 32px;
+    text-align: center;
+}
+
+.win-div {
+    transform: translateY(-20px);
+}
+
+ul {
+    text-align: center;
+    list-style-type: none;
+    font-size: 28px;
+    padding: 0;
 }

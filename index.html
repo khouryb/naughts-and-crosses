@@ -11,10 +11,14 @@
     <header>Noughts and Crosses</header>
     <section class="menuandboard">
       <aside class="menu">
-        <p>Who goes first?</p>
-        <button class="buttonX">X</button>
-        <button class="buttonO">O</button>
-        <ul class="win-history"></ul>
+        <p class="first">Who goes first?</p>
+        <div class="buttons">
+          <button class="buttonX">X</button>
+          <button class="buttonO">O</button>
+        </div>
+        <div class="win-div">
+          <ul class="win-history"></ul>
+        </div>
       </aside>
       <div class="board">
         <div class="square"></div>
@@ -33,8 +37,10 @@
       <p class="player-scores">
         Player one's score is: <span class="playerOne">0</span>
       </p>
-      <p>Player two's score is: <span class="playerTwo">0</span></p>
-      <p>Draws: <span class="tie">0</span></p>
+      <p class="player-scores">
+        Player two's score is: <span class="playerTwo">0</span>
+      </p>
+      <p class="player-scores">Draws: <span class="tie">0</span></p>
     </section>
     <footer></footer>
   </body>
