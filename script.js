@@ -41,7 +41,7 @@ const winningCombinations = [
 
 boardSelect.addEventListener("click", boardEvent);
 
-document.querySelector(".play-again").addEventListener("click", (e) => {
+document.querySelector(".play-again").addEventListener("click", () => {
   clearBoard();
 });
 
@@ -49,12 +49,7 @@ document.querySelector(".menu").addEventListener("click", (e) => {
   goesFirst(e);
 });
 
-document.querySelector(".reset").addEventListener("click", (e) => {
-  playerOneScore = 0;
-  playerTwoScore = 0;
-  tieScore = 0;
-  goesFirstButton = true;
-  gameActive = false;
+document.querySelector(".reset").addEventListener("click", () => {
   enableMenuButtons();
   clearBoard();
   resetValues();
@@ -192,6 +187,11 @@ function removeAllChildNodes(parent) {
 
 //function resets the HTML of
 function resetValues() {
+  playerOneScore = 0;
+  playerTwoScore = 0;
+  tieScore = 0;
+  goesFirstButton = true;
+  gameActive = false;
   removeAllChildNodes(document.querySelector(".win-history"));
   document.querySelector(".playerOne").innerHTML = "0";
   document.querySelector(".playerTwo").innerHTML = "0";
