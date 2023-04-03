@@ -133,15 +133,20 @@ header {
 }
 
 .play-again, .reset {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     background-color: darkblue;
     color: white;
     border: none;
     border-radius: 20px;
     box-shadow: 2px 2px gray;
-    padding: 5px;
+    padding: 5px 9px 5px 9px;
     cursor: pointer;
     font-size: 18px;
+}
+
+.play-again:active, .reset:active {
+    transform: translateY(2px);
+    box-shadow: none;
 }
 
 .reset {
@@ -149,7 +154,7 @@ header {
 }
 
 .player-scores {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .win-history {
