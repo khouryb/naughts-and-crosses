@@ -41,12 +41,23 @@ const winningCombinations = [
 
 boardSelect.addEventListener("click", boardEvent);
 
-document.querySelector(".reset").addEventListener("click", (e) => {
+document.querySelector(".play-again").addEventListener("click", (e) => {
   clearBoard();
 });
 
 document.querySelector(".menu").addEventListener("click", (e) => {
   goesFirst(e);
+});
+
+document.querySelector(".reset").addEventListener("click", (e) => {
+  playerOneScore = 0;
+  playerTwoScore = 0;
+  tieScore = 0;
+  goesFirstButton = true;
+  gameActive = false;
+  enableMenuButtons();
+  clearBoard();
+  resetValues();
 });
 
 function boardEvent(e) {
@@ -55,7 +66,7 @@ function boardEvent(e) {
     squareArray = Array.from(e.target.parentNode.children);
     currentSelection = squareArray.indexOf(e.target);
 
-    // Allows the user to populate the board with
+    // Allows the user to populate the board with x and o
     populateBoard();
     // checks for the winner after each click
     checkWinner(arrayPlayerOne, arrayPlayerTwo);
@@ -76,7 +87,7 @@ function checkWinner(playerOneArray, playerTwoArray) {
     } else if (
       winningCombinations[i].every((array) => playerTwoArray.includes(array))
     ) {
-      gameHistory("Y wins!");
+      gameHistory("O wins!");
       playerTwoBool = true;
       playerTwoScore++;
       document.querySelector(".playerTwo").innerHTML = playerTwoScore;
@@ -152,10 +163,12 @@ function goesFirst(event) {
       currentPlayer = players.playerOne;
       gameActive = true;
       goesFirstButton = false;
+      disableMenuButtons();
     } else if (event.target.classList.contains("buttonO")) {
       currentPlayer = players.playerTwo;
       gameActive = true;
       goesFirstButton = false;
+      disableMenuButtons();
     }
   }
 }
@@ -168,4 +181,29 @@ function gameHistory(string) {
   if (winHistory.childElementCount > 6) {
     winHistory.removeChild(winHistory.lastChild);
   }
+}
+
+// removes all child nodes for the game history
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+//function resets the HTML of
+function resetValues() {
+  removeAllChildNodes(document.querySelector(".win-history"));
+  document.querySelector(".playerOne").innerHTML = "0";
+  document.querySelector(".playerTwo").innerHTML = "0";
+  document.querySelector(".tie").innerHTML = "0";
+}
+
+function disableMenuButtons() {
+  document.querySelector(".buttonX").style.opacity = "0.3";
+  document.querySelector(".buttonO").style.opacity = "0.3";
+}
+
+function enableMenuButtons() {
+  document.querySelector(".buttonX").style.opacity = "1";
+  document.querySelector(".buttonO").style.opacity = "1";
 }

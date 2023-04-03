@@ -21,7 +21,7 @@ header {
 .menu {
     background-color: rgb(186,225,255);
     margin-right: 20px;
-    height: 456px;
+    height: 450px;
     width: 300px;
     border-radius: 10px;
 
@@ -30,9 +30,34 @@ header {
     justify-content: space-between;
 }
 
+.buttons {
+    transform: translateY(-20px);
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonX, .buttonO {
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 3px 3px gray;
+    padding: 5px 15px;
+    min-height: 30px;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+
+.buttonX:active, .buttonO:active {
+    transform: translateY(3px);
+    box-shadow: none;
+    transition: 0.10s;
+}
+
 .board {
-    width: 454px;
-    height: 454px;
+    width: 450px;
+    height: 450px;
     
     border-radius: 10px;
     display: flex;
@@ -46,7 +71,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: black solid 1px;
+    /* border: black solid 1px; */
     height: 150px;
     width: 150px;
     font-size: 104px;
@@ -71,6 +96,24 @@ header {
 	border-bottom: none;
 }
 
+/* Round corners of the play board */
+
+.square:nth-child(1) {
+    border-radius:  10px 0 0 0;
+}
+
+.square:nth-child(3) {
+    border-radius: 0 10px 0 0;
+}
+
+.square:nth-child(7) {
+    border-radius: 0 0 0 10px;
+}
+
+.square:nth-child(9) {
+    border-radius: 0 0 10px 0;
+}
+
 .square:nth-child(even) {
     background-color: rgb(255,179,186);
 }
@@ -85,8 +128,24 @@ header {
 
 }
 
-.reset, .player-scores {
-    margin: 10px 15px 0 0;
+.reset, .play-again, .player-scores {
+    margin: 10px 15px 0 5px;
+}
+
+.play-again, .reset {
+    margin-bottom: 5px;
+    background-color: darkblue;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 2px 2px gray;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.reset {
+    margin-right: 3px;
 }
 
 .player-scores {
@@ -109,12 +168,6 @@ ul {
     
 }
 
-.buttons {
-    transform: translateY(-20px);
-    display: flex;
-    justify-content: space-around;
-}
-
 .first {
     font-size: 32px;
     text-align: center;
@@ -129,4 +182,12 @@ ul {
     list-style-type: none;
     font-size: 28px;
     padding: 0;
+}
+
+.info {
+    background-color: rgb(186,225,255);
+    width: 670px;
+    margin: 10px auto;
+    border-radius: 10px;
+
 }
