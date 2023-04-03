@@ -69,6 +69,7 @@ function boardEvent(e) {
   }
 }
 
+//checks for a winner after each click
 function checkWinner(playerOneArray, playerTwoArray) {
   for (let i = 0; i < winningCombinations.length; i++) {
     if (
@@ -88,12 +89,24 @@ function checkWinner(playerOneArray, playerTwoArray) {
       document.querySelector(".playerTwo").innerHTML = playerTwoScore;
       endGame();
     }
-    //  else {
-    //   checkTie();
-    // }
   }
 }
 
+// checks for a tie after each click
+function checkTie() {
+  if (
+    playerOneBool === false &&
+    playerTwoBool === false &&
+    arrayPlayerOne.length + arrayPlayerTwo.length === 9
+  ) {
+    gameHistory("It's a draw!");
+    tieScore++;
+    document.querySelector(".tie").innerHTML = tieScore;
+    gameActive = false;
+  }
+}
+
+// this function allows players to put their icons on the board
 function populateBoard() {
   if (
     squareArray[currentSelection].classList.contains("X") ||
@@ -137,19 +150,6 @@ function endGame() {
     e.classList.add("X");
   });
   gameActive = false;
-}
-
-function checkTie() {
-  if (
-    playerOneBool === false &&
-    playerTwoBool === false &&
-    arrayPlayerOne.length + arrayPlayerTwo.length === 9
-  ) {
-    gameHistory("It's a draw!");
-    tieScore++;
-    document.querySelector(".tie").innerHTML = tieScore;
-    gameActive = false;
-  }
 }
 
 function goesFirst(event) {
