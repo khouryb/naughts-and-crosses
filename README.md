@@ -33,7 +33,9 @@ We were given 5 days to complete our game, working independently.
 
 ## Planning
 
-In the planning phase of my project I decided to make a wireframe of what I wanted the page to look like: image here
+In the planning phase of my project I decided to make a wireframe of what I wanted the page to look like:
+
+!(assets/wireframe.png)
 
 I knew I wanted a game board and an aside to display some information and maybe to let the user pick who's turn it is first.
 
@@ -155,4 +157,12 @@ This is my first project, therefore I am well aware that my code isn't that DRY.
 
 ## Key Takeaways
 
-Butter chicken, pilau rice and a garlic naan. But also
+Butter chicken, pilau rice and a garlic naan. But also to write my ReadMe as I go so I can include any pseudocode and to make it easier to remember my thinking at every step.
+My confidence with using HTML, javascript and CSS has grown. Building such a large project, instead of doing loads of small labs, has really taught me how to fend for myself and become more self sufficient.
+
+## Future Improvements
+
+- Sounds, I really wanted to implement this as it seems easy to do.
+- A local save so that you can come back to play with the scores intact.
+- An option to switch colour themes for the board.
+- A computer AI.
